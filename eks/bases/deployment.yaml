@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: spring-deployment
+  namespace: sample
+  labels: 
+    app: spring
+spec: 
+  replicas: 1
+  revisionHistoryLimit: 5
+  selector: 
+    matchLabels:
+      app: spring
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template: 
+    metadata: 
+      labels:
+        app: spring
+    spec:
+      containers:
+      - name: spring-con
+        image: prod-sample-project
+        ports: 
+          - name: spring-port 
+            protocol: TCP
+            containerPort: 8080
+

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spring-config
+  namespace: sample
+data:
+  versions: v1 
+  env: bases 
+  

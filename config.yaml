@@ -1,0 +1,8 @@
+sample:
+  path: "."
+  environment: "sample"
+  repo_name: "prod-sample-project"
+  region: "us-east-1"
+  ecr_url: "654654575237.dkr.ecr.us-east-1.amazonaws.com"
+  kustomization_file_path: "eks/sample"
+  cluster: "arn:aws:eks:us-east-1:654654575237:cluster/prod-eks-sample"
