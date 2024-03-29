@@ -1,15 +1,12 @@
-# Dockerfile for java project
+FROM maven:3.8.6-openjdk-11 as build
+RUN git clone https://github.com/maramvenkatareddy/spring-petclinic.git && \
+    cd spring-petclinic && \
+    mvn clean install
+# jar location /spring-petclinic/target/spring-petclinic-2.7.3.jar
 
-# build-stage-1
-FROM maven:3.6-openjdk-17 as build
+FROM openjdk:11
 LABEL project="petclinic"
 LABEL author="devops team"
-RUN mvn clean install
-
-
-# stage-2- run the application
-
-FROM openjdk:17.0
 EXPOSE 8080
 COPY --from=build /spring-petclinic/target/spring-petclinic-2.7.3.jar /spring-petclinic-2.7.3.jar
-CMD ["java", "-jar", "*.jar"]
+CMD ["java", "-jar", "/spring-petclinic-2.7.3.jar"]
