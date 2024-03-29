@@ -41,7 +41,7 @@ node('master') {
       dir("${config.path}") {
         current = "Stage Docker build"
          if (ENVIRONMENT == "sample") {
-            sh "docker build -t ${config.ecr_url}/${config.repo_name}:${GIT_BRANCH[1]}-${gitscm.GIT_COMMIT} -f Dockerfile.prod ."
+            sh "docker build -t ${config.ecr_url}/${config.repo_name}:${GIT_BRANCH[1]}-${gitscm.GIT_COMMIT} -f Dockerfile ."
          } else if (ENVIRONMENT == "staging") { 
             sh "docker build -t ${config.ecr_url}/${config.repo_name}:${GIT_BRANCH[1]}-${gitscm.GIT_COMMIT} -f Dockerfile.stage ."
          } else {
