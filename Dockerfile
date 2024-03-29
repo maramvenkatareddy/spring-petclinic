@@ -1,7 +1,7 @@
-FROM maven:3.8.6-openjdk-11 as build
+FROM maven:3.8.6-openjdk-17 as build
 RUN git clone https://github.com/maramvenkatareddy/spring-petclinic.git && \
     cd spring-petclinic && \
-    mvn clean install
+    mvn package
 # jar location /spring-petclinic/target/spring-petclinic-2.7.3.jar
 
 FROM openjdk:11
