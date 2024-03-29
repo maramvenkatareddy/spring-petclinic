@@ -21,7 +21,7 @@ spec:
         app: spring
     spec:
       containers:
-      - name: spring-conainer
+      - name: spring-con
         image: prod-sample-project
         ports: 
           - name: port-8080
