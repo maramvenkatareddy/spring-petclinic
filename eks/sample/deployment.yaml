@@ -27,8 +27,6 @@ spec:
           - name: port-8080
             protocol: TCP
             containerPort: 8080
-        env: 
-         - run: test
         envFrom:
         - configMapRef:
             name: spring-config
