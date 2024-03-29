@@ -4,7 +4,7 @@
 FROM maven:3.6-openjdk-17 as build
 LABEL project="petclinic"
 LABEL author="devops team"
-RUN ll
+RUN ls -al
 RUN ./mvnw package
 
 
