@@ -30,4 +30,5 @@ spec:
         env: 
          - run: test
         envFrom:
-          - name: spring-config
+        - configMapRef:
+            name: spring-config
