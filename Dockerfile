@@ -4,10 +4,7 @@
 FROM maven:3.6-openjdk-17 as build
 LABEL project="petclinic"
 LABEL author="devops team"
-RUN ls -al
-WORKDIR /var/lib/jenkins/workspace/spring
-RUN pwd
-RUN mvn package
+RUN mvn clean install
 
 
 # stage-2- run the application
