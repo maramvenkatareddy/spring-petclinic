@@ -6,7 +6,7 @@ metadata:
   labels: 
     app: spring
 spec: 
-  replicas: 4
+  replicas: 2
   revisionHistoryLimit: 2
   selector: 
     matchLabels:
