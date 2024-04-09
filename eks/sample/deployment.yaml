@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: spring-con
-        image: venkatareddy3533/admin2:latest
+        image: venkatareddy3533/order2:latest
         ports: 
           - name: port-8080
             protocol: TCP
