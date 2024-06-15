@@ -1,0 +1,23 @@
+pipeline {
+
+    agent {label 'veen'}
+    triggers {
+        pollSCM('* * * * *')
+    }
+    stages {
+
+        stage ('clone the code from github') {
+            steps {
+                git branch: 'main', url: 'https://github.com/maramvenkatareddy/spring-petclinic.git'
+            }
+
+        }
+        stage ('build the code') {
+            steps {
+                sh 'mvn package'
+            }
+
+        }
+    }
+
+}
