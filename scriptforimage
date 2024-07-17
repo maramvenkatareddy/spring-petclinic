@@ -1,0 +1,17 @@
+import groovy.json.JsonSlurperClassic
+
+// Get all images with tags as JSON, the --filter is very important to get only images that have a tag
+def cmd = "aws ecr list-images --repository-name sample-dev-images --filter tagStatus=TAGGED --region ap-south-1"
+def ecr_images_json = cmd.execute()
+
+// Parse JSON into Groovy object
+def data = new JsonSlurperClassic().parseText(ecr_images_json.text)
+
+// Prepare the results list
+def ecr_images = [];
+
+// Add all tags
+data.imageIds.each { ecr_images.push(it.imageTag) } 
+
+// Return the list for Jenkins "select-box"
+return ecr_images
